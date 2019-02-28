@@ -2,6 +2,8 @@ package com.example.Register;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +15,10 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+
+import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -50,9 +56,9 @@ public class RegisterController extends HttpServlet {
 		String email=request.getParameter("email");
 		String username=request.getParameter("username");
 		String pass=request.getParameter("password");
-		//System.out.println(email);
-		//System.out.println(username);
-		//System.out.println(pass);
+		////System.out.println(email);
+		////System.out.println(username);
+		////System.out.println(pass);
 		RegisterBean regbean=new RegisterBean();
 		regbean.setEmail(email);
 		regbean.setName(username);
@@ -81,22 +87,63 @@ public class RegisterController extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			System.out.println(e);
+			//System.out.println(e);
 		}
 		if(status)
 		{
 			//check for password
-			HttpSession session = request.getSession();
-			session.setAttribute("USER", username);
-			RequestDispatcher rd=request.getRequestDispatcher("welcome_page.jsp");
-			rd.forward(request, response);
+			//before redirecting get all the home values
+			try
+			{
+				Client client = Client.create();
+				WebResource webResource = client.resource("http://localhost:8080/RestService/getHomeService/getHome");
+				//MultivaluedMap formData = new MultivaluedMapImpl();
+				//formData.add("username", name);
+				//formData.add("password", password);
+				ClientResponse restResponse = webResource
+				    .type(MediaType.APPLICATION_JSON)
+				    .accept(MediaType.APPLICATION_JSON)
+				    .post(ClientResponse.class);
+				String json=restResponse.getEntity(String.class);
+				//System.out.println(json+"in servlet");
+				if(restResponse.getStatus()!=200)
+				{
+					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
+				}
+				//File[] list=webResource.accept("application/json").type("application/json").post(new GenericType<File[]>(){});
+				//String statusString = restResponse.getEntity(String.class);
+				//status = Boolean.parseBoolean(statusString);
+				//JsonParser parser = new JsonParser();
+				Gson gs= new Gson();
+				ObjectMapper mapper = new ObjectMapper();
+				ArrayList<HashMap<String,String>> lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
+				if(restResponse.getStatus()==200)
+				{
+					
+					request.setAttribute("listans", lans);
+					RequestDispatcher rd=request.getRequestDispatcher("welcome_page.jsp");
+					rd.forward(request, response);
+				}
+				else
+				{
+					//System.out.println("exception");
+				}
+				
+			}
+			catch(Exception e)
+			{
+				//System.out.println(e);
+			}
+			
 		}
 		else{
-			RequestDispatcher rd=request.getRequestDispatcher("Register.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 			rd.forward(request, response);
 			PrintWriter out=response.getWriter();
 			out.println("username already exists");
 		}
 	}
-
+		
 }
+
+
