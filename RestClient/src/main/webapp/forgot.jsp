@@ -13,7 +13,7 @@
 <form action="ForgotController" method="post">
 		Name:<input type="text" name="name"><br>
 		who is your best friend?<input type="text" name="friend"><br>
-		<input type="submit" value="login" class="btn btn-primary">
+		<input type="submit" value="login">
 	</form>
 
 </body>

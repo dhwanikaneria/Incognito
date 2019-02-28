@@ -79,9 +79,6 @@ h1 {
 			
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Get Started</button>
 		</form>
-		
-		
-		
 			</td>
 		</tr>
 	</table>

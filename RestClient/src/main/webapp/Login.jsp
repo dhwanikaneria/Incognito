@@ -16,7 +16,7 @@ if(a!=null){
 	<form action="LoginController" method="post">
 		Name:<input type="text" name="name"><br>
 		Password:<input type="password" name="password"><br>
-		<input type="submit" value="login" class="btn btn-primary">
+		<input type="submit" value="login">
 	</form>
 	<a href="forgot.jsp">Forgot Password ?</a><br/>
 </body>

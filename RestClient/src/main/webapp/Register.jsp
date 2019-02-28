@@ -11,7 +11,7 @@
 		Email id:<input type="text" name="email"><br>
 		UserName:<input type="text" name="username"><br>
 		Password:<input type="password" name="password"><br>
-		<input type="submit" value="Register" class="btn btn-primary">
+		<input type="submit" value="Register">
 	</form>
 </body>
 </html>

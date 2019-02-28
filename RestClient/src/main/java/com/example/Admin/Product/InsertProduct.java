@@ -45,7 +45,7 @@ public class InsertProduct extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		////System.out.println("Enter");
+		//System.out.println("Enter");
 		
 		try
 		{
@@ -63,19 +63,19 @@ public class InsertProduct extends HttpServlet{
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class,formData1);
 		
-			//System.out.println(restResponse.getStatus() +"controller");
-			//	//System.out.println("Here");
+			System.out.println(restResponse.getStatus() +"controller");
+			//	System.out.println("Here");
 		/*	String statusString = restResponse.getEntity(String.class);
-			//System.out.println(statusString);
+			System.out.println(statusString);
 			//ArrayList<String> a=new ArrayList<String>();
 			//String[] a=statusString.split(",");
 			HashMap<String,ArrayList<String>> list = new Gson().fromJson(statusString,  (new HashMap<String,ArrayList<String>>()).getClass());//HashMap<String,String[]>(){}.getClass());
-			//System.out.println(list);
-			////System.out.println(list[0]+"here");
+			System.out.println(list);
+			//System.out.println(list[0]+"here");
 			//request.setAttribute("brand",(String[]) list.get("brand").toArray());
 			
 			request.setAttribute("brand", list.get("brand").toArray(new String[0]));
-			////System.out.println(list.get("brand").toArray(new String[0]).length);
+			//System.out.println(list.get("brand").toArray(new String[0]).length);
 			request.setAttribute("category", list.get("category").toArray(new String[0]));
 			request.setAttribute("color",list.get("color").toArray(new String[0]));
 			
@@ -107,7 +107,7 @@ public class InsertProduct extends HttpServlet{
 					    .accept(MediaType.APPLICATION_JSON)
 					    .post(ClientResponse.class);
 					String json=restResponse.getEntity(String.class);
-					//System.out.println(json+"in servlet");
+					System.out.println(json+"in servlet");
 					if(restResponse.getStatus()!=200)
 					{
 						throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -131,13 +131,13 @@ public class InsertProduct extends HttpServlet{
 					}
 					else
 					{
-						//System.out.println("exception");
+						System.out.println("exception");
 					}
 					
 				}
 				catch(Exception e)
 				{
-					//System.out.println(e);
+					System.out.println(e);
 				}
 				
 			}
@@ -159,7 +159,7 @@ public class InsertProduct extends HttpServlet{
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		/*if(status)
 		{

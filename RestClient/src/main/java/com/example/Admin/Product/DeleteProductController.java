@@ -55,7 +55,7 @@ public class DeleteProductController extends HttpServlet {
 			WebResource webResource = client.resource("http://localhost:8080/RestService/insertAndDeleteProductsService/deleteProduct");
 			MultivaluedMap formData1 = new MultivaluedMapImpl();
 			formData1.add("product_id", product_id);
-			//System.out.println(product_id+"controller");
+			System.out.println(product_id+"controller");
 			formData1.add("username", username);
 			//formData1.add("password", pass);
 			//formData1.add("email", email);
@@ -82,7 +82,7 @@ public class DeleteProductController extends HttpServlet {
 					    .accept(MediaType.APPLICATION_JSON)
 					    .post(ClientResponse.class);
 					String json=restResponse1.getEntity(String.class);
-					//System.out.println(json+"in servlet");
+					System.out.println(json+"in servlet");
 					/*if(restResponse1.getStatus()!=200)
 					{
 						throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -94,7 +94,7 @@ public class DeleteProductController extends HttpServlet {
 					Gson gs= new Gson();
 					ObjectMapper mapper = new ObjectMapper();
 					lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-					//System.out.println("Response before"+restResponse.getStatus());
+					System.out.println("Response before"+restResponse.getStatus());
 					
 					
 				
@@ -115,14 +115,14 @@ public class DeleteProductController extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	}
 
@@ -169,7 +169,7 @@ public class DeleteProductController extends HttpServlet {
 					    .accept(MediaType.APPLICATION_JSON)
 					    .post(ClientResponse.class);
 					String json=restResponse1.getEntity(String.class);
-					//System.out.println(json+"in servlet");
+					System.out.println(json+"in servlet");
 					/*if(restResponse1.getStatus()!=200)
 					{
 						throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -181,7 +181,7 @@ public class DeleteProductController extends HttpServlet {
 					Gson gs= new Gson();
 					ObjectMapper mapper = new ObjectMapper();
 					lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-					//System.out.println("Response before"+restResponse.getStatus());
+					System.out.println("Response before"+restResponse.getStatus());
 					
 					
 				
@@ -203,14 +203,14 @@ public class DeleteProductController extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	}
 

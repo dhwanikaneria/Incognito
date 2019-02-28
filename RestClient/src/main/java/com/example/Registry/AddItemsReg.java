@@ -58,7 +58,7 @@ public class AddItemsReg extends HttpServlet {
 		//ArrayList<String>
 		String arraytostring=Arrays.toString(friends);
 	
-		////System.out.println(arraytostring);
+		//System.out.println(arraytostring);
 		ArrayList<String> pass= new ArrayList<String>();
 		pass.add(username);
 		pass.add(reg_name);
@@ -76,7 +76,7 @@ public class AddItemsReg extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class,json1);
 			String json=restResponse.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			ArrayList<String> lans = mapper.readValue(json, new TypeReference<ArrayList<String>>(){});
@@ -89,22 +89,19 @@ public class AddItemsReg extends HttpServlet {
 			{
 				
 				request.setAttribute("reg_id", reg_id);
-				//request.setAttribute(arg0, arg1);
-				HttpSession sess=request.getSession();
-				sess.setAttribute("Reg_id", reg_id);
 				request.setAttribute("Product_details", second);
 				RequestDispatcher rd=request.getRequestDispatcher("AddParticularItem.jsp");
 				rd.forward(request, response);
 			}
 			else
 			{
-				//System.out.println("exception");
+				System.out.println("exception");
 			}
 
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 
 

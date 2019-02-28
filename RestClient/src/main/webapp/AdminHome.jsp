@@ -10,10 +10,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="application/json">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="application/json">
 <title>Insert title here</title>
 <script type="text/javascript">
 function alertName(){
@@ -128,25 +124,29 @@ Please click here to view your registry
 </p>
 <input type="submit" name="add" value="Search Friends">
 </form> -->
-
+<form action="LogoutController" method="post">
+	<button class="btn btn-lg btn-primary btn-block" type="submit" value="Profile">Log Out</button>
+		<input type=hidden name="name" value="<%=session.getAttribute("USER")%>">
+		</form>
 <form action="fetchcontroller" method="post">
-	<button class="btn btn-primary" type="submit" value="login">Add Item</button>
+	<button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Add Item</button>
 		</form>
 <form action="AddFiltersProductController" method="post">
 	<input type="text" name="brand">
-	
-	<button class="btn btn-primary" type="submit" value="login">Add Brand</button>
-	
 	<input type="text" name="category">
-	<button class="btn btn-primary" type="submit" value="login">Add Category</button>
-	
 	<input type="text" name="color">
+	<button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Add Brand</button>
+	<button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Add Category</button>
+	<button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Add Color</button>
+		</form>
 
-	<button class="btn btn-primary" type="submit" value="login">Add Color</button>
-		</form>
-<form action="LogoutController" method="post">
-	<button class="btn btn-primary" type="submit" value="Profile">Log Out</button>
-		<input type=hidden name="name" value="<%=session.getAttribute("USER")%>">
-		</form>
 </body>
+
+<form action="welcome_page.jsp" method="post">
+<p>
+
+</p>
+<input type="submit" name="add" value="Go to Home">
+</form>
+
 </html>

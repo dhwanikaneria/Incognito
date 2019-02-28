@@ -15,7 +15,6 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
-import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
@@ -30,8 +29,6 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
  */
 @WebServlet("/UpdateProfile")
 public class UpdateProfile extends HttpServlet {
-	final static Logger logger = Logger.getLogger(UpdateProfile.class);
-	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -58,14 +55,14 @@ public class UpdateProfile extends HttpServlet {
 		//doGet(request, response);
 		
 		
-		////System.out.println(email);
-		////System.out.println(username);
-		////System.out.println(pass);
+		//System.out.println(email);
+		//System.out.println(username);
+		//System.out.println(pass);
 	
 		Boolean status = false;
 		try
 		{
-			//System.out.println("I ma here");
+			System.out.println("I ma here");
 			Client client = Client.create();
 			WebResource webResource = client.resource("http://localhost:8080/RestService/fetch/updateprofile");
 			MultivaluedMap formData1 = new MultivaluedMapImpl();
@@ -77,7 +74,7 @@ public class UpdateProfile extends HttpServlet {
 			formData1.add("first_name", request.getParameter("first_name"));
 			formData1.add("last_name", request.getParameter("last_name"));
 			String shared="false";
-			//System.out.println(request.getParameter("shared")+"checkbox");
+			System.out.println(request.getParameter("shared")+"checkbox");
 			
 			if(null != request.getParameter("shared")) {
 				shared="true";
@@ -98,7 +95,7 @@ public class UpdateProfile extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		if(status)
 		{
@@ -119,7 +116,7 @@ public class UpdateProfile extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -140,13 +137,13 @@ public class UpdateProfile extends HttpServlet {
 				}
 				else
 				{
-					//System.out.println("exception");
+					System.out.println("exception");
 				}
 				
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}

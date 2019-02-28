@@ -67,7 +67,7 @@ public class SearchUserComtroller extends HttpServlet {
 			    .post(ClientResponse.class,json1);
 			
 			String json=restResponse.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			ArrayList<HashMap<String,String>> lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
@@ -80,13 +80,13 @@ public class SearchUserComtroller extends HttpServlet {
 			}
 			else
 			{
-				//System.out.println("exception");
+				System.out.println("exception");
 			}
 
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		
 	}

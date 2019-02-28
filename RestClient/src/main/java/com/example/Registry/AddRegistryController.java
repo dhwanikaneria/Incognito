@@ -43,9 +43,9 @@ public class AddRegistryController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//System.out.println("dhwani");
+		System.out.println("dhwani");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		////System.out.println(request.getParameter("product_id")+"doGet");
+		//System.out.println(request.getParameter("product_id")+"doGet");
 		String product_id=request.getParameter("product_id");
 		String reg_id=request.getParameter("reg_id");
 		HttpSession session = request.getSession();
@@ -71,7 +71,7 @@ public class AddRegistryController extends HttpServlet {
 			}*/
 			String statusString = restResponse.getEntity(String.class);
 			status = Boolean.parseBoolean(statusString);
-			////System.out.println("dhwani here");
+			//System.out.println("dhwani here");
 			request.setAttribute("status", status);
 			request.setAttribute("reg_id", reg_id);
 			RequestDispatcher rd1=request.getRequestDispatcher("GetDedicatedHomeController");
@@ -90,7 +90,7 @@ public class AddRegistryController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				/*if(restResponse1.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -102,7 +102,7 @@ public class AddRegistryController extends HttpServlet {
 				/*Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 			
 			if(restResponse1.getStatus()==200 && status)
 			{
@@ -123,13 +123,13 @@ public class AddRegistryController extends HttpServlet {
 			
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 		*/
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 			
 			
@@ -157,7 +157,7 @@ public class AddRegistryController extends HttpServlet {
 					    .accept(MediaType.APPLICATION_JSON)
 					    .post(ClientResponse.class);
 					String json=restResponse1.getEntity(String.class);
-					//System.out.println(json+"in servlet");
+					System.out.println(json+"in servlet");
 					if(restResponse1.getStatus()!=200)
 					{
 						throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -169,7 +169,7 @@ public class AddRegistryController extends HttpServlet {
 					Gson gs= new Gson();
 					ObjectMapper mapper = new ObjectMapper();
 					lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-					//System.out.println("Response before"+restResponse.getStatus());
+					System.out.println("Response before"+restResponse.getStatus());
 					if(restResponse.getStatus()==200)
 					{
 						
@@ -186,7 +186,7 @@ public class AddRegistryController extends HttpServlet {
 				}
 				catch(Exception e)
 				{
-					//System.out.println(e);
+					System.out.println(e);
 				}
 
 			}
@@ -205,7 +205,7 @@ public class AddRegistryController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse1.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -217,7 +217,7 @@ public class AddRegistryController extends HttpServlet {
 				Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 				if(restResponse.getStatus()==200)
 				{
 					
@@ -229,13 +229,13 @@ public class AddRegistryController extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 		}
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}*/
 		
 		  

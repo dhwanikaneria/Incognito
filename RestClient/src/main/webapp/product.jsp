@@ -94,14 +94,16 @@ for(int i=0;i<category.length;i++)
 
 
 			<button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Add Product</button>
+			
 		</form>
+		
 </div>
-</body>
-
-<form action="AdminHome.jsp" method="post">
+<form action="welcome_page.jsp" method="post">
 <p>
 
 </p>
-<input type="submit" name="add" value="Go to Home" class="btn btn-primary">
+<input type="submit" name="add" value="Go to Home">
 </form>
+
+</body>
 </html>

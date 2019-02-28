@@ -75,7 +75,7 @@ public class forgotController extends HttpServlet {
 			ClientResponse restResponse = webResource
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class, formData);
-			//System.out.println(restResponse.getStatus()+"controller");
+			System.out.println(restResponse.getStatus()+"controller");
 			if(restResponse.getStatus()!=200)
 			{
 				throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -86,9 +86,9 @@ public class forgotController extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
-		//System.out.println(status +"controller");
+		System.out.println(status +"controller");
 		if(status)
 		{request.setAttribute("name", name);
 		
@@ -121,7 +121,7 @@ public class forgotController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -142,13 +142,13 @@ public class forgotController extends HttpServlet {
 				}
 				else
 				{
-					//System.out.println("exception");
+					System.out.println("exception");
 				}
 				
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}

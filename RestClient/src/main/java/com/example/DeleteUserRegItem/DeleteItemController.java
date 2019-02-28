@@ -71,7 +71,7 @@ public class DeleteItemController extends HttpServlet {
 			}*/
 			String statusString = restResponse.getEntity(String.class);
 			status = Boolean.parseBoolean(statusString);
-			//System.out.println("delete controller"+status);
+			System.out.println("delete controller"+status);
 			if(status)
 			{
 				//call webservice to display the data
@@ -85,12 +85,12 @@ public class DeleteItemController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class,username);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				
 				Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 				if(restResponse1.getStatus()==200 && status)
 				{
 					
@@ -110,7 +110,7 @@ public class DeleteItemController extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 
 	}

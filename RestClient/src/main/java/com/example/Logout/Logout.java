@@ -56,7 +56,7 @@ public class Logout extends HttpServlet {
 		String username=(String)session.getAttribute("USER");
 		session.setAttribute("USER", null);
 		
-		//System.out.println("session kill");
+		System.out.println("session kill");
 		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 		rd.forward(request, response);
 	}

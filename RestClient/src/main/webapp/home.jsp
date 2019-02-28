@@ -78,13 +78,6 @@ h1 {
 			
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Get Started</button>
 		</form>
-		
-		<form action="welcome_page.jsp" method="post">
-<p>
-
-</p>
-<input type="submit" name="add" value="Go to Home">
-</form>
 			</td>
 		</tr>
 	</table>

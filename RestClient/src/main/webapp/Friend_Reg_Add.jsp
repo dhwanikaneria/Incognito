@@ -5,11 +5,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <script type="text/javascript">
@@ -28,16 +23,14 @@ alert("Item was not able to delete by some reason");
 <h1>Welcome to your Friend's registry</h1>
 <% ArrayList<HashMap<String,String>> ans=(ArrayList<HashMap<String,String>>)request.getAttribute("listans"); %>
 <form action="" method="post">
-<div class="container">
-<table class="table table-bordered table-hover">
+<table>
 	<tr>
 		<td>Product Name</td>
 		<td>Product Description</td>
 		<td>Product Price</td>
 		<td>Category Name</td>
 		<td>Brand Name</td>
-		<td>Color Name</td>	
-		<td> </td>		
+		<td>Color Name</td>			
 	</tr>	
 	<%	for(int i=0;i<ans.size();i++)
 		{
@@ -53,7 +46,7 @@ alert("Item was not able to delete by some reason");
 					%><td>
 					
 					<a href="AddRegistryController?product_id=<%=hm.get("product_id")%>">
-					<input type="button" name="add<%=i %>" value="Add to your registry" class="btn btn-primary">
+					<input type="button" name="add<%=i %>" value="Add to your registry">
 					</a>
 					</td><%		
 				%>
@@ -62,7 +55,6 @@ alert("Item was not able to delete by some reason");
 		
 		%>
 </table>
-</div>
 </form>
 <%  if(request.getAttribute("success")!=null)
 	{%>
@@ -77,7 +69,8 @@ alert("Item was not able to delete by some reason");
 <p>
 
 </p>
-<input type="submit" name="add" value="Go to Home" class="btn btn-primary">
+<input type="submit" name="add" value="Go to Home">
 </form>
+
 </body>
 </html>

@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
-import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
@@ -35,8 +34,6 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
  */
 @WebServlet("/ResetController")
 public class ResetPassword extends HttpServlet {
-	final static Logger logger = Logger.getLogger(ResetPassword.class);
-	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -64,7 +61,7 @@ public class ResetPassword extends HttpServlet {
 		String newp=request.getParameter("newPassword");
 		String oldp=request.getParameter("confirmPassword");
 		String name=request.getParameter("name");
-		//System.out.println(request.getParameter("name") +"controller");
+		System.out.println(request.getParameter("name") +"controller");
 		if(!newp.equals(oldp)){
 			RequestDispatcher rd=request.getRequestDispatcher("ResetPassword.jsp");
 			request.setAttribute("message", "Password Doesn't Match");
@@ -85,14 +82,14 @@ public class ResetPassword extends HttpServlet {
 			Client client = Client.create();
 			WebResource webResource = client.resource("http://localhost:8080/RestService/fetch/setpassword");
 			MultivaluedMap formData = new MultivaluedMapImpl();
-			//System.out.println(newp +"new password in controller");
+			System.out.println(newp +"new password in controller");
 			formData.add("password", newp);
 			formData.add("name", name);
-//			//System.out.println();
+//			System.out.println();
 			ClientResponse restResponse = webResource
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class, formData);
-			//System.out.println(restResponse.getStatus()+"controller");
+			System.out.println(restResponse.getStatus()+"controller");
 			if(restResponse.getStatus()!=200)
 			{
 				throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -103,9 +100,9 @@ public class ResetPassword extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
-		//System.out.println(status +"controller");
+		System.out.println(status +"controller");
 		if(status)
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
@@ -136,7 +133,7 @@ public class ResetPassword extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -157,13 +154,13 @@ public class ResetPassword extends HttpServlet {
 				}
 				else
 				{
-					//System.out.println("exception");
+					System.out.println("exception");
 				}
 				
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}

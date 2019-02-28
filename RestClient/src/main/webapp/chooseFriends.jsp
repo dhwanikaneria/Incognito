@@ -37,15 +37,14 @@
 	}
 	%>
 </table>
-<input type="submit" name="add" value="Add Items to registry" class="btn btn-primary">
+<input type="submit" name="add" value="Add Items to registry">
 </form>
-
-
 <form action="welcome_page.jsp" method="post">
 <p>
 
 </p>
-<input type="submit" name="add" value="Go to Home" class="btn btn-primary">
+<input type="submit" name="add" value="Go to Home">
 </form>
+
 </body>
 </html>

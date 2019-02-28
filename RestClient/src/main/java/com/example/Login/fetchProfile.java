@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSession;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
-import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
@@ -38,7 +37,7 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
 @WebServlet("/fetchprofile")
 public class fetchProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	final static Logger logger = Logger.getLogger(LoginController.class);
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -64,7 +63,7 @@ public class fetchProfile extends HttpServlet {
 		/*String newp=request.getParameter("newPassword");
 		String oldp=request.getParameter("confirmPassword");*/
 		String name=request.getParameter("name");
-		//System.out.println(request.getParameter("name") +"controller");
+		System.out.println(request.getParameter("name") +"controller");
 		/*if(!newp.equals(oldp)){
 			RequestDispatcher rd=request.getRequestDispatcher("ResetPassword.jsp");
 			request.setAttribute("message", "Password Doesn't Match");
@@ -79,66 +78,27 @@ public class fetchProfile extends HttpServlet {
 		bean.setName(name);
 		bean.setPassword(password);
 		request.setAttribute("bean",bean);*/
-		
-		//get tocken
-		String c=null;
-		try {
-			logger.debug("Fetching Token in Controller");
-			Client client = Client.create();
-			WebResource webResource = client.resource("http://localhost:8080/RestMicroServices/gettokenmcroservice/gettoken");
-			MultivaluedMap formData = new MultivaluedMapImpl();
-			/*//System.out.println(newp +"new password in controller");
-			formData.add("password", newp);*/
-			formData.add("name", name);
-			
-			/*.*/ClientResponse restResponse = webResource
-			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
-			    .post(ClientResponse.class, formData);
-			String json = restResponse.getEntity(String.class);
-			Gson gs= new Gson();
-			ObjectMapper mapper = new ObjectMapper();
-			 c = String.valueOf(mapper.readValue(json, int.class));
-			
-		}
-		catch(Exception e) {
-			//System.out.println(e);
-			
-		}
-		
-		
-		
-		
-		
-		
-		
-		
 		Boolean status = false;
-		
-		//System.out.println("controller"+c);
 		try
 		{
 			Client client = Client.create();
 			WebResource webResource = client.resource("http://localhost:8080/RestService/fetch/fetchprofile");
 			MultivaluedMap formData = new MultivaluedMapImpl();
-			/*//System.out.println(newp +"new password in controller");
+			/*System.out.println(newp +"new password in controller");
 			formData.add("password", newp);*/
 			formData.add("name", name);
-			formData.add("token", c);
-			logger.debug("Passing Token to Webservice");
-			
-			//System.out.println("token " +c);
-//			//System.out.println();
+//			System.out.println();
 			ClientResponse restResponse = webResource
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class, formData);
-			//System.out.println(restResponse.getStatus()+"controller why");
+			System.out.println(restResponse.getStatus()+"controller why");
 			
 			String statusString = restResponse.getEntity(String.class);
-			//System.out.println(statusString);
+			System.out.println(statusString);
 			//ArrayList<String> a=new ArrayList<String>();
 			//String[] a=statusString.split(",");
 			HashMap<String,String> list = new Gson().fromJson(statusString,  (new HashMap<String,String>()).getClass());//HashMap<String,String[]>(){}.getClass());
-			//System.out.println(list);
+			System.out.println(list);
 			
 			if(restResponse.getStatus()!=200)
 			{
@@ -152,18 +112,18 @@ public class fetchProfile extends HttpServlet {
 				request.setAttribute("address", list.get("address"));
 				request.setAttribute("last_name", list.get("last_name"));
 				request.setAttribute("first_name", list.get("first_name"));
-			//	request.setAttribute("shared", list.get("shared"));
+				request.setAttribute("shared", list.get("shared"));
 				
 				RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 				request.setAttribute("message", "Password changed");
-				//System.out.println(request.getAttribute("emailid")+"client");
+				System.out.println(request.getAttribute("emailid")+"client");
 				rd.forward(request, response);
 			}
 			
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	
 	}

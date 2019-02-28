@@ -75,7 +75,7 @@ public class Home extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -90,7 +90,7 @@ public class Home extends HttpServlet {
 				if(restResponse.getStatus()==200)
 				{
 					RequestDispatcher rd=request.getRequestDispatcher("welcomeUser.jsp");
-					//System.out.println("Hey I am here");
+					System.out.println("Hey I am here");
 					request.setAttribute("listans", lans);
 					
 					if(logger.isDebugEnabled()){
@@ -100,13 +100,13 @@ public class Home extends HttpServlet {
 				}
 				else
 				{
-					//System.out.println("exception");
+					System.out.println("exception");
 				}
 				
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}

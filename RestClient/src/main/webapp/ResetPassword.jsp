@@ -19,8 +19,8 @@ if(a!=null){
 		Confirm Password:<input type="password" name="confirmPassword"><br>
 		<input type=hidden name="name" value="<%=request.getAttribute("name")%>">
 		
-		<input type="submit" value="Change Password" class="btn btn-primary">
+		<input type="submit" value="Change Password">
 	</form>
-	
+		
 </body>
 </html>

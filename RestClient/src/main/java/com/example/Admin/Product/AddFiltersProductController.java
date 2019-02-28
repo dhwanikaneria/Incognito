@@ -53,13 +53,13 @@ public class AddFiltersProductController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		//System.out.println("brand--------------"+request);
+		System.out.println("brand--------------"+request);
 		String brand = (String)request.getParameter("brand");
 		String category =(String) request.getParameter("category");
 		String color = (String)request.getParameter("color");
-		//System.out.println("brand"+brand);
-		//System.out.println("category"+category);
-		//System.out.println("color"+color);
+		System.out.println("brand"+brand);
+		System.out.println("category"+category);
+		System.out.println("color"+color);
 		ProductBean pBean = new ProductBean();
 		Client client;
 		WebResource webResource;
@@ -69,7 +69,7 @@ public class AddFiltersProductController extends HttpServlet {
 		String a="";
 		ArrayList<HashMap<String,String>> lans=null;
 		try {
-	//		//System.out.println("im here");
+	//		System.out.println("im here");
 			if(!brand.equals("")) {
 				pBean.setBrand(brand);
 				request.setAttribute("ProductBean", pBean);
@@ -78,7 +78,7 @@ public class AddFiltersProductController extends HttpServlet {
 				formData1 = new MultivaluedMapImpl();
 				formData1.add("brand", brand);
 				restResponse = webResource.type(MediaType.APPLICATION_FORM_URLENCODED_TYPE).post(ClientResponse.class, formData1);
-				//System.out.println("Brand added");
+				System.out.println("Brand added");
 			}
 			if(!category.equals("")) {
 				pBean.setBrand(category);
@@ -120,7 +120,7 @@ public class AddFiltersProductController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				/*if(restResponse1.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -132,7 +132,7 @@ public class AddFiltersProductController extends HttpServlet {
 				Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 				
 				
 			
@@ -160,7 +160,7 @@ public class AddFiltersProductController extends HttpServlet {
 	}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	}
 

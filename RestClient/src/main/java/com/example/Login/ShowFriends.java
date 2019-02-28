@@ -54,7 +54,7 @@ public class ShowFriends extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String name=(String)session.getAttribute("USER");
-		//System.out.println(name + "controller");
+		System.out.println(name + "controller");
 		
 		
 		Boolean status = false;
@@ -63,21 +63,21 @@ public class ShowFriends extends HttpServlet {
 			Client client = Client.create();
 			WebResource webResource = client.resource("http://localhost:8080/RestService/fetch/fetchfriends");
 			MultivaluedMap formData = new MultivaluedMapImpl();
-			/*//System.out.println(newp +"new password in controller");
+			/*System.out.println(newp +"new password in controller");
 			formData.add("password", newp);*/
 			formData.add("name", name);
-//			//System.out.println();
+//			System.out.println();
 			ClientResponse restResponse = webResource
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class, formData);
-			//System.out.println(restResponse.getStatus()+"controller why");
+			System.out.println(restResponse.getStatus()+"controller why");
 			
 			String statusString = restResponse.getEntity(String.class);
-			//System.out.println(statusString);
+			System.out.println(statusString);
 			//ArrayList<String> a=new ArrayList<String>();
 			//String[] a=statusString.split(",");
 			ArrayList<String> friends = new Gson().fromJson(statusString,  (new ArrayList<String>()).getClass());//HashMap<String,String[]>(){}.getClass());
-			//System.out.println(friends+"controller");
+			System.out.println(friends+"controller");
 			
 			if(restResponse.getStatus()!=200)
 			{
@@ -89,14 +89,14 @@ public class ShowFriends extends HttpServlet {
 				
 				RequestDispatcher rd=request.getRequestDispatcher("addfriends.jsp");
 				//request.setAttribute("message", "Password changed");
-				////System.out.println(request.getAttribute("emailid")+"client");
+				//System.out.println(request.getAttribute("emailid")+"client");
 				rd.forward(request, response);
 			}
 			
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		
 		
@@ -120,7 +120,7 @@ public class ShowFriends extends HttpServlet {
 		String oldp=request.getParameter("confirmPassword");*/
 
 		String name=request.getParameter("name");
-		//System.out.println(request.getParameter("name") +"controller");
+		System.out.println(request.getParameter("name") +"controller");
 		/*if(!newp.equals(oldp)){
 			RequestDispatcher rd=request.getRequestDispatcher("ResetPassword.jsp");
 			request.setAttribute("message", "Password Doesn't Match");
@@ -141,21 +141,21 @@ public class ShowFriends extends HttpServlet {
 			Client client = Client.create();
 			WebResource webResource = client.resource("http://localhost:8001/RestService/loginservices/fetchprofile");
 			MultivaluedMap formData = new MultivaluedMapImpl();
-			/*//System.out.println(newp +"new password in controller");
+			/*System.out.println(newp +"new password in controller");
 			formData.add("password", newp);*/
 			formData.add("name", name);
-//			//System.out.println();
+//			System.out.println();
 			ClientResponse restResponse = webResource
 			    .type(MediaType.APPLICATION_FORM_URLENCODED_TYPE)
 			    .post(ClientResponse.class, formData);
-			//System.out.println(restResponse.getStatus()+"controller why");
+			System.out.println(restResponse.getStatus()+"controller why");
 			
 			String statusString = restResponse.getEntity(String.class);
-			//System.out.println(statusString);
+			System.out.println(statusString);
 			//ArrayList<String> a=new ArrayList<String>();
 			//String[] a=statusString.split(",");
 			HashMap<String,String> list = new Gson().fromJson(statusString,  (new HashMap<String,String>()).getClass());//HashMap<String,String[]>(){}.getClass());
-			//System.out.println(list);
+			System.out.println(list);
 			
 			if(restResponse.getStatus()!=200)
 			{
@@ -173,14 +173,14 @@ public class ShowFriends extends HttpServlet {
 				
 				RequestDispatcher rd=request.getRequestDispatcher("profile.jsp");
 				request.setAttribute("message", "Password changed");
-				//System.out.println(request.getAttribute("emailid")+"client");
+				System.out.println(request.getAttribute("emailid")+"client");
 				rd.forward(request, response);
 			}
 			
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	
 	}

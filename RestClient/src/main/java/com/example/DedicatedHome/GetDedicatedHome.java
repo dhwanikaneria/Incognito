@@ -61,7 +61,7 @@ public class GetDedicatedHome extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class);
 			String json=restResponse1.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			/*if(restResponse1.getStatus()!=200)
 			{
 				throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -73,7 +73,7 @@ public class GetDedicatedHome extends HttpServlet {
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-			//System.out.println("Response before"+restResponse1.getStatus());
+			System.out.println("Response before"+restResponse1.getStatus());
 			//getting category, brand and color service from here
 			request.setAttribute("product_details", lans);
 			int reg_id=Integer.parseInt(request.getAttribute("reg_id").toString());
@@ -105,7 +105,7 @@ public class GetDedicatedHome extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class);
 			String json2=restResponse2.getEntity(String.class);
-			//System.out.println(json2+"in servlet");
+			System.out.println(json2+"in servlet");
 			/*if(restResponse1.getStatus()!=200)
 			{
 				throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -117,7 +117,7 @@ public class GetDedicatedHome extends HttpServlet {
 			//Gson gs= new Gson();
 			ObjectMapper mapper1 = new ObjectMapper();
 			out = mapper1.readValue(json, new TypeReference<ArrayList<ArrayList<String>>>(){});
-			//System.out.println("Response before"+restResponse2.getStatus());
+			System.out.println("Response before"+restResponse2.getStatus());
 			
 			
 			
@@ -142,7 +142,7 @@ public class GetDedicatedHome extends HttpServlet {
 		
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 	}
 

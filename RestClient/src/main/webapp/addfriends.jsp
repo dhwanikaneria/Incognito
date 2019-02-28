@@ -52,13 +52,14 @@ String[] friends=(String[])request.getAttribute("friends");
 <p>
 <input type="text" name="query" />
 </p>
-<input type="submit" name="add" value="Search Friends" class="btn btn-primary">
+<input type="submit" name="add" value="Search Friends">
 </form>
 <form action="welcome_page.jsp" method="post">
 <p>
 
 </p>
-<input type="submit" name="add" value="Go to Home" class="btn btn-primary">
+<input type="submit" name="add" value="Go to Home">
 </form>
+
 </body>
 </html>

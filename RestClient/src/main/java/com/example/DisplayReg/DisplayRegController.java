@@ -42,7 +42,7 @@ public class DisplayRegController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//System.out.println("In do get");
+		System.out.println("In do get");
 		HttpSession session = request.getSession();
 		String username=(String)session.getAttribute("USER");
 		String username1=request.getParameter("username");
@@ -58,7 +58,7 @@ public class DisplayRegController extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class,username1);
 			String json=restResponse.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			ArrayList<HashMap<String,String>> lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
@@ -71,13 +71,13 @@ public class DisplayRegController extends HttpServlet {
 			}
 			else
 			{
-				//System.out.println("exception");
+				System.out.println("exception");
 			}
 
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 
 	}
@@ -88,8 +88,8 @@ public class DisplayRegController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		////System.out.println("you are in dopost");
-		//System.out.println("In do post");
+		//System.out.println("you are in dopost");
+		System.out.println("In do post");
 		HttpSession session = request.getSession();
 		String username=(String)session.getAttribute("USER");
 		try
@@ -104,7 +104,7 @@ public class DisplayRegController extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class,username);
 			String json=restResponse.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			ArrayList<HashMap<String,String>> lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
@@ -117,13 +117,13 @@ public class DisplayRegController extends HttpServlet {
 			}
 			else
 			{
-				//System.out.println("exception");
+				System.out.println("exception");
 			}
 
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		
 	}

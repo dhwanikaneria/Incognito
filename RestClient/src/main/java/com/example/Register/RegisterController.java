@@ -56,9 +56,9 @@ public class RegisterController extends HttpServlet {
 		String email=request.getParameter("email");
 		String username=request.getParameter("username");
 		String pass=request.getParameter("password");
-		////System.out.println(email);
-		////System.out.println(username);
-		////System.out.println(pass);
+		//System.out.println(email);
+		//System.out.println(username);
+		//System.out.println(pass);
 		RegisterBean regbean=new RegisterBean();
 		regbean.setEmail(email);
 		regbean.setName(username);
@@ -87,7 +87,7 @@ public class RegisterController extends HttpServlet {
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		if(status)
 		{
@@ -105,7 +105,7 @@ public class RegisterController extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse.getStatus());
@@ -126,13 +126,13 @@ public class RegisterController extends HttpServlet {
 				}
 				else
 				{
-					//System.out.println("exception");
+					System.out.println("exception");
 				}
 				
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 			
 		}

@@ -43,14 +43,14 @@ public class AddFriendDb extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//System.out.println("dhwaniolaoaloaa");
+		System.out.println("dhwaniolaoaloaa");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		////System.out.println(request.getParameter("product_id")+"doGet");
+		//System.out.println(request.getParameter("product_id")+"doGet");
 		String friend=request.getParameter("username");
-		//System.out.println(friend+"add friend");
+		System.out.println(friend+"add friend");
 		HttpSession session = request.getSession();
 		String username=(String)session.getAttribute("USER");
-		//System.out.println(username);
+		System.out.println(username);
 		ArrayList<HashMap<String,String>> lans=null;
 		boolean status=false;
 		try
@@ -71,7 +71,7 @@ public class AddFriendDb extends HttpServlet {
 			}*/
 			String statusString = restResponse.getEntity(String.class);
 			status = Boolean.parseBoolean(statusString);
-			//System.out.println("dhwani here");
+			System.out.println("dhwani here");
 
 			/*<a href="showFriend?user=<%=session.getAttribute("USER")%>">Show Friends</a>
 */
@@ -92,7 +92,7 @@ public class AddFriendDb extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse1.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -104,7 +104,7 @@ public class AddFriendDb extends HttpServlet {
 				Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 			
 			if(restResponse1.getStatus()==200 && status)
 			{
@@ -125,13 +125,13 @@ public class AddFriendDb extends HttpServlet {
 			
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 		
 		}*/
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 			
 			
@@ -159,7 +159,7 @@ public class AddFriendDb extends HttpServlet {
 					    .accept(MediaType.APPLICATION_JSON)
 					    .post(ClientResponse.class);
 					String json=restResponse1.getEntity(String.class);
-					//System.out.println(json+"in servlet");
+					System.out.println(json+"in servlet");
 					if(restResponse1.getStatus()!=200)
 					{
 						throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -171,7 +171,7 @@ public class AddFriendDb extends HttpServlet {
 					Gson gs= new Gson();
 					ObjectMapper mapper = new ObjectMapper();
 					lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-					//System.out.println("Response before"+restResponse.getStatus());
+					System.out.println("Response before"+restResponse.getStatus());
 					if(restResponse.getStatus()==200)
 					{
 						
@@ -188,7 +188,7 @@ public class AddFriendDb extends HttpServlet {
 				}
 				catch(Exception e)
 				{
-					//System.out.println(e);
+					System.out.println(e);
 				}
 
 			}
@@ -207,7 +207,7 @@ public class AddFriendDb extends HttpServlet {
 				    .accept(MediaType.APPLICATION_JSON)
 				    .post(ClientResponse.class);
 				String json=restResponse1.getEntity(String.class);
-				//System.out.println(json+"in servlet");
+				System.out.println(json+"in servlet");
 				if(restResponse1.getStatus()!=200)
 				{
 					throw new RuntimeException("Failed : HTTP error code : " + restResponse1.getStatus());
@@ -219,7 +219,7 @@ public class AddFriendDb extends HttpServlet {
 				Gson gs= new Gson();
 				ObjectMapper mapper = new ObjectMapper();
 				lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
-				//System.out.println("Response before"+restResponse.getStatus());
+				System.out.println("Response before"+restResponse.getStatus());
 				if(restResponse.getStatus()==200)
 				{
 					
@@ -231,13 +231,13 @@ public class AddFriendDb extends HttpServlet {
 			}
 			catch(Exception e)
 			{
-				//System.out.println(e);
+				System.out.println(e);
 			}
 		}
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}*/
 		
 		  
@@ -248,7 +248,7 @@ public class AddFriendDb extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//System.out.println("hi Am I coming here?");
+		System.out.println("hi Am I coming here?");
 	}
 
 }

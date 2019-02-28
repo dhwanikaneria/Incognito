@@ -65,27 +65,26 @@ public class SearchItemController extends HttpServlet {
 			    .accept(MediaType.APPLICATION_JSON)
 			    .post(ClientResponse.class,query);
 			String json=restResponse.getEntity(String.class);
-			//System.out.println(json+"in servlet");
+			System.out.println(json+"in servlet");
 			Gson gs= new Gson();
 			ObjectMapper mapper = new ObjectMapper();
 			ArrayList<HashMap<String,String>> lans = mapper.readValue(json, new TypeReference<ArrayList<HashMap<String,String>>>(){});
 			if(restResponse.getStatus()==200)
 			{
-				HttpSession sess=request.getSession();
-				request.setAttribute("reg_id", sess.getAttribute("Reg_id"));
-				request.setAttribute("Product_details", lans);
-				RequestDispatcher rd=request.getRequestDispatcher("AddParticularItem.jsp");
+				
+				request.setAttribute("listans", lans);
+				RequestDispatcher rd=request.getRequestDispatcher("welcome_page.jsp");
 				rd.forward(request, response);
 			}
 			else
 			{
-				//System.out.println("exception");
+				System.out.println("exception");
 			}
 
 		}
 		catch(Exception e)
 		{
-			//System.out.println(e);
+			System.out.println(e);
 		}
 		
 	}
