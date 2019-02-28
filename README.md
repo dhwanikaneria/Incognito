@@ -1,2 +1,2 @@
-# Incognito
-Followed characteristics of SOA Principles like Decoupling and Reusability by creating micro services of smaller functionalities. In the Fronted used Angular 2.
+# Gift Registry System
+Application is developed by following characteristics of SOA Principles like Decoupling and Reusability by creating micro services of smaller functionalities. This is an application to gift items liked by friends using Java, JSP, Jersey Framework, Web & Micro Services in backend, MemCache, Request & Response Header Compression, MVC, MySQL DB, TSL/SSL in Tomcat, Single Sign On.
